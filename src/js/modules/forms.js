@@ -1,4 +1,4 @@
-// import checkNumInputs from './checkNumInput';
+import { postData } from '../services/requests';
 
 const forms = (state) => {
     const form = document.querySelectorAll('form'),
@@ -20,14 +20,6 @@ const forms = (state) => {
     const path = {
         designer: 'assets/server.php',
         question: 'assets/question.php'
-    };
-
-    const postData = async (url, data) => {
-        let res = await fetch(url, {
-            method: "POST",
-            body: data
-        });
-        return await res.text();
     };
 
     const clearInputs = () => {
@@ -66,7 +58,7 @@ const forms = (state) => {
             
             let statusImg = document.createElement('img');
             statusImg.setAttribute('src', message.spinner);
-            statusImg.classList.add('snimated', 'fadeInUp');
+            statusImg.classList.add('animated', 'fadeInUp');
             statusMessage.appendChild(statusImg);
 
             let textMessage = document.createElement('div');
